@@ -45,6 +45,35 @@ public class App {
         else
         {
             climbStairs.put(n, hashmapMethod(n-1) + hashmapMethod(n-2));
-            //return hashmapMethod(n-1) + hashmapMethod(n-2);
+            return hashmapMethod(n-1) + hashmapMethod(n-2);
+        }
+
+        public static int loopMethod(int n)
+        {
+        if (n == 1) //if only one stair left
+        {
+            return 1;
+        }
+
+        if (n == 2) //if only two stairs left
+        {
+            return 2;
+        }
+
+        else
+        {
+            int result = 0;
+            int prev = 2;
+            int prevPrev = 1;
+
+            for (int i = 3; i <= n; ++i)
+            {
+                result = prev + prevPrev;
+                prevPrev = prev;
+                prev = result;
+            }
+            return result;
+
+        }
         }
     }
